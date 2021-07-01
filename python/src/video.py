@@ -10,6 +10,7 @@ class Video:
         """Video constructor."""
         self._title = video_title
         self._video_id = video_id
+        self._flag = None
 
         # Turn the tags into a tuple here so it's unmodifiable,
         # in case the caller changes the 'video_tags' they passed to us
@@ -29,3 +30,17 @@ class Video:
     def tags(self) -> Sequence[str]:
         """Returns the list of tags of a video."""
         return self._tags
+
+    @property
+    def flag(self) -> str:
+        """Returns flag associated with video."""
+        return self._flag
+
+    def add_flag(self, reason):
+        if reason:
+            self._flag = reason
+        else:
+            self._flag = "Not supplied"
+
+    def remove_flag(self):
+        self._flag = None

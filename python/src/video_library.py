@@ -31,6 +31,16 @@ class VideoLibrary:
     def get_all_videos(self):
         """Returns all available video information from the video library."""
         return list(self._videos.values())
+    
+    def get_all_playable_videos(self):
+        """Returns all available video information from the video library for videos that are not flagged."""
+        available_videos = list()
+
+        for video in self._videos.values():
+            if not video.flag:
+                available_videos.append(video)
+
+        return available_videos
 
     def get_video(self, video_id):
         """Returns the video object (title, url, tags) from the video library.

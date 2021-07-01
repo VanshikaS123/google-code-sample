@@ -17,7 +17,7 @@ class CommandParser:
 
     def execute_command(self, command: Sequence[str]):
         """Executes the user command. Expects the command to be upper case.
-           Raises CommandException if a command cannot be parsed.
+            Raises CommandException if a command cannot be parsed.
         """
         if not command:
             raise CommandException(
